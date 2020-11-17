@@ -1,0 +1,102 @@
+import React, { useState } from 'react';
+import { Button, Card } from 'reactstrap';
+import {baseUrl} from '../shared/baseUrl';
+
+function paymentStatus(obj){
+  // const bearer = 'Bearer ' + localStorage.getItem('token');
+
+  // return fetch(baseUrl +'payment/'+ obj.api, {
+  //     method: "POST",
+  //     body: JSON.stringify(obj),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       'Authorization': bearer
+  //     },
+  //     credentials: "same-origin"
+  // })
+  // .then(response => {
+  //     if (response.ok) {
+  //       return response;
+  //     } else {
+  //       var error = new Error('Error ' + response.status + ': ' + response.statusText);
+  //       error.response = response;
+  //       throw error;
+  //     }
+  //   },
+  //   error => {
+  //         throw error;
+  //   })
+  // .then(response => response.json())
+  // .then(res => { console.log(res)})
+  // .catch(error => console.log(error));
+}
+const Cash=({amount,order})=>{
+  
+  order={...order,api:"cash"};
+  return(
+<div >
+    <Card body className="centerFlex mt-3 mb-3" style={{borderRadius:5,height:"50vh"}}>
+    {amount===0?
+      <div className="h-20 centerFlex">
+        Please add something to cart before proceeding further
+      </div>:
+      <div>
+        <div className="h-20 centerFlex btn btn-primary" onClick={paymentStatus(order)}>
+          Click here to place order for cash
+        </div>
+      </div>}
+    </Card>
+
+</div>
+);}
+const Paytm=({amount,order})=>{
+  order={...order,api:"paytm"};
+  const [tid,setTid]=useState('');
+  // console.log(amount);
+  return(
+    <div >
+      <Card  className="centerFlex mt-3 mb-3" style={{borderRadius:5,height:"50vh"}}>
+      {amount===0?
+        <div className="h-20 centerFlex">
+          Please add something to cart before proceeding further
+        </div>:
+        <>
+          <h4>Kindly pay Rs.{amount} to 8765516920 on paytm and enter the order ID below</h4>
+          <input className="mt-5" placeholder="Transaction ID" value={tid} onChange={(event)=>setTid(event.target.value)}/>
+          <div className="h-20 centerFlex btn btn-primary mt-2" onClick={paymentStatus({...order,tid:tid})} >
+          Submit
+        </div>
+        </>
+      }
+      </Card>
+    </div>
+  )
+}
+
+export default function Payment(props) {
+  const [payment,setPayment]=useState(0);
+  function cashPayment(){
+    setPayment(0);
+  }
+  function paytm(){
+    setPayment(1);
+  }
+  return (
+    
+    <div className="col-12 container">
+      <div className="row mb-3 mt-3 centerFlex">
+        <div className="col-3">
+          <Card body style={{height:"50vh"}}>
+              <Button onClick={cashPayment} color="danger">Cash</Button>
+              <div className="mt-3"></div>
+              <Button onClick={paytm} color="primary">Paytm</Button>  
+          </Card>
+        </div>
+        <div className="col-9 container">
+          {payment===0?<Cash amount={props.location.state.amount} order={props.order}/>:<Paytm amount={props.location.state.amount} order={props.order}/>}
+        </div>
+      </div>
+    </div>
+    
+  );
+}
