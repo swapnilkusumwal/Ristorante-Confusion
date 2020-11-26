@@ -1,4 +1,5 @@
 FROM node
+FROM mongo
 WORKDIR /usr/src/app
 COPY confusion /usr/src/app
 RUN mongorestore /usr/src/app/confusion/
