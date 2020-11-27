@@ -21,6 +21,7 @@ var cartRouter = require('./routes/cartRouter');
 var paymentRouter = require('./routes/paymentRouter');
 
 var app = express();
+/*
 app.all('*',(req,res,next)=>{
   if(req.secure){
     return next();
@@ -28,7 +29,7 @@ app.all('*',(req,res,next)=>{
   else{
     res.redirect(307,'https://' +req.hostname+':'+app.get('secPort')+req.url)
   }
-});
+});*/
 
 const mongoose=require('mongoose');
 
