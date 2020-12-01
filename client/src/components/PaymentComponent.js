@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'reactstrap';
-import {baseUrl} from '../shared/baseUrl';
+// import {baseUrl} from '../shared/baseUrl';
 
 function paymentStatus(obj){
   // const bearer = 'Bearer ' + localStorage.getItem('token');
@@ -41,7 +41,7 @@ const Cash=({amount,order})=>{
         Please add something to cart before proceeding further
       </div>:
       <div>
-        <div className="h-20 centerFlex btn btn-primary" onClick={paymentStatus(order)}>
+        <div className="h-20 centerFlex btn btn-primary" onClick={()=>{alert("Your order has been placed!")}}>
           Click here to place order for cash
         </div>
       </div>}
