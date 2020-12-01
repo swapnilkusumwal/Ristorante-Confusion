@@ -81,7 +81,7 @@ class Header extends Component{
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to="/favorites">
+                                <NavLink className="nav-link" to="/favorite">
                                     <span className="fa fa-heart fa-lg"></span> My Favorites
                                 </NavLink>
                             </NavItem>
@@ -92,7 +92,7 @@ class Header extends Component{
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to="/cart">
+                                <NavLink className="nav-link" to="/carts">
                                     <span className="fa fa-shopping-cart fa-lg"></span>Cart
                                 </NavLink>
                             </NavItem>

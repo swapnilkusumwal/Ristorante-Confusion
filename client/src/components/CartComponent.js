@@ -130,7 +130,7 @@ function Cart(props){
                 <div className="row mb-1">
                   <div className="col-12" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
                   <Link to={{
-                      pathname: '/payment',
+                      pathname: '/payments',
                       state: {
                         amount: x,
                         order:props.dishes.cart.dishes

@@ -1,6 +1,6 @@
 module.exports={
     'secretKey': '12345-67890-09876-54321',
-    'mongoUrl': 'mongodb://localhost:27017/confusion',
+    'mongoUrl': 'mongodb+srv://devops:devops@cluster0.8kzsz.mongodb.net/test?retryWrites=true&w=majority',
     'facebook':{
         clientId:'688722215298591',
         clientSecret:'9e45bbdbf4d58b17b4bb793a82ac621c'

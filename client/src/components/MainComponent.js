@@ -133,12 +133,12 @@ const DishWithId = ({match}) => {
                   <Route path='/home' component={HomePage} />
                   <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} postCart={this.props.postCart} />} />
                   <Route path='/menu/:dishId' component={DishWithId}/>
-                  <PrivateRoute exact path="/favorites" component={() => <Favorite favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />
+                  <PrivateRoute exact path="/favorite" component={() => <Favorite favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />
 
-                  <Route path='/cart' component={()=><Cart dishes={this.props.cart} deleteCart={this.props.deleteCart} isLoading={this.props.cart.isLoading}/>}/>
+                  <Route path='/carts' component={()=><Cart dishes={this.props.cart} deleteCart={this.props.deleteCart} isLoading={this.props.cart.isLoading}/>}/>
                   <Route exact path='/contactus' component={()=><Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback}/>} />
                   <Route path='/aboutus' component={Leader}/>
-                  <Route path='/payment' component={Payment}/>
+                  <Route path='/payments' component={Payment}/>
                   <Redirect to="/home" />
               </Switch>
             </CSSTransition>
